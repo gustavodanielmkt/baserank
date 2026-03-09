@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { User, Calendar, Flag, Shield, Activity, Save, Loader2, ArrowRight, Camera } from 'lucide-react';
-import { useAuth } from '../App'; // Precisaremos exportar hook ou pegar session de alguma forma. Mas vamos simplificar usando supabase.auth
 
 export function ProfileSetup() {
     const navigate = useNavigate();

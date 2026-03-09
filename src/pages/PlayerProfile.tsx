@@ -1,8 +1,16 @@
-import { ArrowLeft, Share2, Bookmark, Activity, TrendingUp, TrendingDown, Dribbble } from 'lucide-react';
+import { ArrowLeft, Share2, Bookmark, Activity, TrendingUp, TrendingDown, Dribbble, LogOut } from 'lucide-react';
 import { BottomNav } from '../components/BottomNav';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { supabase } from '../lib/supabase';
 
 export function PlayerProfile() {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    navigate('/login');
+  };
+
   return (
     <div className="font-display text-slate-900 dark:text-slate-100 min-h-screen pb-20">
       <header className="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
@@ -16,6 +24,12 @@ export function PlayerProfile() {
             </h2>
           </div>
           <div className="flex gap-2">
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-red-500 hover:bg-red-500/10 font-bold text-xs uppercase tracking-wider transition-colors"
+            >
+              <LogOut className="w-4 h-4" /> Sair
+            </button>
             <button className="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
               <Share2 className="text-slate-900 dark:text-slate-100 w-5 h-5" />
             </button>
