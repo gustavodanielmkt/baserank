@@ -15,6 +15,7 @@ import { PerformanceAnalytics } from './pages/PerformanceAnalytics';
 import { Highlights } from './pages/Highlights';
 import { DevelopmentPlan } from './pages/DevelopmentPlan';
 import { ScoutDiscovery } from './pages/ScoutDiscovery';
+import { ProfileSetup } from './pages/ProfileSetup';
 
 export default function App() {
   const [session, setSession] = useState<Session | null>(null);
@@ -46,7 +47,6 @@ export default function App() {
     );
   }
 
-  // Se não estiver logado, exibe apenas a tela de autenticação
   if (!session) {
     return (
       <Router>
@@ -58,11 +58,11 @@ export default function App() {
     );
   }
 
-  // Usuário Logado - Tem acesso às telas principais da aplicação
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/setup" element={<ProfileSetup />} />
         <Route path="/profile" element={<PlayerProfile />} />
         <Route path="/analytics" element={<PerformanceAnalytics />} />
         <Route path="/highlights" element={<Highlights />} />
