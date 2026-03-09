@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #21c45d;
+  --color-background-light: #f6f8f7;
+  --color-background-dark: #122017;
+  --font-display: "Inter", sans-serif;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+body {
+  font-family: var(--font-display);
+  background-color: var(--color-background-light);
+  color: #0f172a;
+}
+
+.dark body {
+  background-color: var(--color-background-dark);
+  color: #f1f5f9;
+}
