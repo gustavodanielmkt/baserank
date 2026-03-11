@@ -63,7 +63,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/setup" element={<ProfileSetup />} />
-        <Route path="/profile" element={<PlayerProfile />} />
+        <Route path="/profile/:id" element={<PlayerProfile />} />
         <Route path="/analytics" element={<PerformanceAnalytics />} />
         <Route path="/highlights" element={<Highlights />} />
         <Route path="/plan" element={<DevelopmentPlan />} />
